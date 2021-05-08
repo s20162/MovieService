@@ -21,4 +21,8 @@ public class MovieService {
         return movie;
 
     }
+    public Movie createMovie() {
+        Movie movie = new Movie(1L, "name1", "dic1", Movie.Category.cat1, Movie.Lang.ang);
+        return movie;
+    }
 }
