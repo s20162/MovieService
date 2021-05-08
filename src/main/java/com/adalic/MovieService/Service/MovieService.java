@@ -15,4 +15,10 @@ public class MovieService {
 
         return List.of(movie1, movie2, movie3);
     }
+    public Movie getMovieByID(Long ID) {
+
+        Movie movie = new Movie(ID, "name1", "dic1", Movie.Category.cat1, Movie.Lang.ang);
+        return movie;
+
+    }
 }
