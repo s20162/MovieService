@@ -1,9 +1,9 @@
 package com.adalic.MovieService.Model;
 
 
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+import javax.persistence.*;
 
-@EntityScan
+@Entity
 public class Movie {
 
     public enum Category {
@@ -12,12 +12,18 @@ public class Movie {
     public enum Lang {
         pl,ang,rus
     }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ID;
     private String name;
     private String director;
+    @Enumerated(EnumType.STRING)
     private Category cat;
+    @Enumerated(EnumType.STRING)
     private Lang lang;
 
+    public Movie() {
+    }
 
     public Category getCat() {
         return cat;
@@ -59,8 +65,8 @@ public class Movie {
         this.director = director;
     }
 
-    public Movie(Long ID, String name, String director, Category cat, Lang lang) {
-        this.ID = ID;
+    public Movie( String name, String director, Category cat, Lang lang) {
+
         this.name = name;
         this.director = director;
         this.cat = cat;

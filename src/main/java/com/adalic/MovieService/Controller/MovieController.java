@@ -32,7 +32,7 @@ public class MovieController {
 
     @PostMapping
     public ResponseEntity<Movie> createMovieFromBody(@RequestBody Movie movie) {
-        Movie newmovie = movieService.createMovie();
+        Movie newmovie = movieService.createMovie(movie);
         return ResponseEntity.ok(newmovie);
     }
 
